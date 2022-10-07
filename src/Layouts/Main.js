@@ -1,14 +1,14 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 import Header from '../component/Header/Header';
- 
 
-const Product = () => {
+const Main = () => {
     return (
         <div>
             <Header></Header>
-            <h1>This is Product</h1>
+            <Outlet></Outlet>
         </div>
     );
 };
 
-export default Product;
+export default Main;

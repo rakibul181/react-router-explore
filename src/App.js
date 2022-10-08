@@ -6,6 +6,8 @@ import About from './component/About/About';
 import Product from './Product/Product';
 import Main from './Layouts/Main';
 import UserDatails from './component/UserDatiels/UserDatails';
+import Posts from './component/Posts/Posts';
+import Post from './component/Post/Post';
 
 
 function App() {
@@ -34,6 +36,20 @@ function App() {
           },
           element:<UserDatails></UserDatails>
 
+        },
+        {
+          path:'/posts',
+          loader:async()=>{
+            return fetch('https://jsonplaceholder.typicode.com/posts')
+          },
+          element:<Posts></Posts>
+        },
+        {
+          path:'/post/:postid',
+          loader:async({params})=>{
+            return fetch(`https://jsonplaceholder.typicode.com/posts/${params.postid}`)
+          },
+          element:<Post></Post>
         }
       ]
     },

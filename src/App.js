@@ -12,10 +12,19 @@ function App() {
     {
       path: '/',
       element: <Main></Main>, 
+      
       children: [
         { path: '/', element: <Home></Home> },
-        { path: 'home', element: <Home></Home> },
-        { path: 'about', element: <About></About> },
+        { path: 'home',
+        loader:async()=>{
+          return fetch('https://jsonplaceholder.typicode.com/users')
+        },
+        element: <Home></Home> },
+        { path: 'about',
+        loader:async()=>{
+          return fetch('https://jsonplaceholder.typicode.com/posts')
+        },
+        element: <About></About> },
       ]
     },
 
